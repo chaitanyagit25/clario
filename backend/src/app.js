@@ -7,6 +7,7 @@
 
 import express from 'express';
 import healthRouter from './routes/health.js';
+import leadsRouter from './routes/leads.js';
 
 const app = express();
 
@@ -21,6 +22,9 @@ app.use(express.json());
 
 // Health-check endpoint: GET /api/health
 app.use('/api', healthRouter);
+
+// Lead capture endpoint: POST /api/leads
+app.use('/api', leadsRouter);
 
 // ── Not-Found Handler ──────────────────────────────────────────────────
 // If no route matched the request, respond with a clear 404 JSON message.
